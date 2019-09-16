@@ -9,9 +9,20 @@
     <!-- pickadate -->
     <link rel="stylesheet" href="css/default.css" />
     <link rel="stylesheet" href="css/default.date.css" />
+
+    <link rel="stylesheet" href="css/animate.css" />
 </head>
 <body>
     <!-- content -->
+    <!-- toast -->
+    <div id="toast" class="toast">
+        <div class="toast-header">
+            <strong class="mr-auto" id="product">Please choose at least one balloon.</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
     <div class="container">
         <h1>Happy Birthday!</h1><hr />
         <form role="form">
@@ -25,12 +36,28 @@
                         <label for="birthday">Birthday</label>
                         <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" />
                     </div>
+                    <div class="form-group">
+                        <input type="submit" id="submit" placeholder="Submit" class="btn btn-primary">
+                    </div>
                 </div>
+                <button id="check" type="button" class="btn btn-primary">Check All</button>
                 <div class="col-sm">
-                    <img src="media/red.png" class="ball" alt="red balloon" id="redImg" />
-                    <img src="media/green.png" class="ball" alt="green balloon" id="greenImg" />
-                    <img src="media/blue.png" class="ball" alt="blue balloon" id="blueImg" />
+                    <label for="red"><img src="media/red.png" class="ball" alt="red balloon" id="redImg" /></label>
+                    <input type="checkbox" id="red" name="ball" value="red" />
+                    <label for="green"><img src="media/green.png" class="ball" alt="green balloon" id="greenImg" /></label>
+                    <input type="checkbox" id="green" name="ball" value="green" />
+                    <label for="blue"><img src="media/blue.png" class="ball" alt="blue balloon" id="blueImg" /></label>
+                    <input type="checkbox" id="blue" name="ball" value="blue" />
+
+                    <label for="orange"><img src="media/orange.png" class="ball" alt="orange balloon" id="orangeImg" /></label>
+                    <input type="checkbox" id="orange" name="ball" value="orange" />
+                    <label for="blue_green"><img src="media/blue_green.png" class="ball" alt="blue_green balloon" id="blue_greenImg" /></label>
+                    <input type="checkbox" id="blue_green" name="ball" value="blue_green" />
+                    <label for="purple"><img src="media/purple.png" class="ball" alt="purple balloon" id="purpleImg" /></label>
+                    <input type="checkbox" id="purple" name="ball" value="purple" />
                 </div>
+                <button id="uncheck" class="btn btn-primary" type="button">Uncheck All</button>
+
             </div>
         </form>
     </div>
