@@ -1,6 +1,9 @@
 ﻿$(document).ready(function () {
-    $("img").addClass("animated bounce");
 
+    var animate;
+
+    $("img").addClass("animated bounce");
+    
     $('#submit').on('click', function (e) {
         checked = $("input[type=checkbox]:checked").length;
 
@@ -16,16 +19,11 @@
         $('#red').prop('checked', true);
         $('#green').prop('checked', true);
         $('#blue').prop('checked', true);
-        $('#black').prop('checked', true);
-        $('#blue_green').prop('checked', true);
-        $('#purple').prop('checked', true);
     });
     $('#uncheck').on('click', function () {
+        $('#blue').prop('checked', false);
         $('#red').prop('checked', false);
         $('#green').prop('checked', false);
-        $('#black').prop('checked', false);
-        $('#blue_green').prop('checked', false);
-        $('#purple').prop('checked', false);
     });
     $('body').hover(function () {
         $('h1').css("color", "black")
@@ -45,25 +43,25 @@
     $('#orangeImg').hover(function () {
         $('h1').css("color", "orange")
     });
-    $('#blue_greenImg').hover(function () {
-        $('h1').css("color", "teal")
-    });
-    $('#purpleImg').hover(function () {
-        $('h1').css("color", "purple")
-    });
-
-
-    $('button').hover(function () {
-        $('h1').css("color", "black")
-
-    });
     
-
-
 });
 
 
 $(function () {
     $('#birthday').pickadate({ format: 'mmmm, d' });
+
+    // uncheck all checkboxes (FireFox)
+    $('.form-check-input').each(function () {
+        $(this).prop('checked', false);
+    });
+    // event listener for check/uncheck
+    $('.form-check-input').on('change', function () {
+        // make the image visible
+        $('#' + this.id + 'Img').css('visibility', 'visible')
+        // animate balloon in/out based on checkbox
+        $(this).is(':checked') ?
+            $('#' + this.id + 'Img').removeClass().addClass('animated bounceInDown') :
+            $('#' + this.id + 'Img').addClass('animated bounceOutUp');
+    });
 });
 
