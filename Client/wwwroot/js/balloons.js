@@ -1,6 +1,45 @@
 ﻿$(document).ready(function () {
 
     var animate;
+    var rando = (Math.round(Math.random() * 10));
+
+    switch (rando) {
+        case 1:
+            animate = 'bounce';
+            break;
+        case 2:
+            animate = 'flash';
+            break;
+        case 3:
+            animate = 'rubberBand';
+            break;
+        case 4:
+            animate = 'shake';
+            break;
+        case 5:
+            animate = 'swing';
+            break;
+        case 6:
+            animate = 'tada';
+            break;
+        case 7:
+            animate = 'wobble';
+            break;
+        case 8:
+            animate = 'jello';
+            break;
+        case 9:
+            animate = 'heartBeat';
+            break;
+        case 10:
+            animate = 'headShake';
+            break;
+        default:
+            animate = 'bounce';
+            break;
+    }
+
+    $('h1').addClass('animated ' + animate);
     
     $('#submit').on('click', function (e) {
         e.preventDefault();
@@ -14,11 +53,11 @@
 
 
     });
+
     $('#check').on('click', function () {
         $('#red').prop('checked', true);
         $('#green').prop('checked', true);
         $('#blue').prop('checked', true);
-        animate();
     });
     $('#uncheck').on('click', function () {
         $('#blue').prop('checked', false);
@@ -27,23 +66,26 @@
         animate();
     });
 
-    $('#red').hover(function () {
+    $("label[for='red']").hover(function () {
         $('h1').css("color", "red")
-
     });
 
-    $('#green').hover(function () {
+    $("label[for='green']").hover(function () {
         $('h1').css("color", "green")
 
     });
-    $('#blue').hover(function () {
+    $("label[for='blue']").hover(function () {
         $('h1').css("color", "blue")
     });
-    
+    $("label").mouseout(function () {
+        $('h1').css("color", "black");
+    });
+
+
 });
 
 
-$(function animate() {
+$(function () {
     $('#birthday').pickadate({ format: 'mmmm, d' });
 
     // uncheck all checkboxes (FireFox)
