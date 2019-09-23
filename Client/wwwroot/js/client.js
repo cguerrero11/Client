@@ -1,8 +1,8 @@
-// JavaScript source code
 $(function () {
+    // preload audio
+    var toast = new Audio('media/toast.wav');
+
     $('.code').on('click', function (e) {
-        // preload audio
-        var toast = new Audio('media/toast.wav');
         e.preventDefault();
         // first pause the audio (in case it is still playing)
         toast.pause();
@@ -10,6 +10,15 @@ $(function () {
         toast.currentTime = 0;
         // play audio
         toast.play();
+
+        $('#product').html($(this).data('product'));
+        $('#code').html($(this).data('code'));
         $('#toast').toast({ autohide: false }).toast('show');
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.key === "Escape") {
+            $('#toast').toast('hide');
+        }
     });
 });
